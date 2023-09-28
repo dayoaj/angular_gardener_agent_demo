@@ -1,0 +1,25 @@
+<mat-accordion>
+    <ng-container *ngIf="plantList.length > 0">
+
+        <mat-expansion-panel *ngFor="let plant of plantList">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{plant.species}}
+                </mat-panel-title>
+                <mat-panel-description>
+
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <ul>
+                <li>Nickname: {{plant.nickName}}</li>
+                <li>Leave Color: {{plant.leaveColor}}</li>
+                <li>Water Requirement: {{plant.waterReq}}</li>
+                <li>Maturity Height: {{plant.height}}</li>
+                <li>Light Level: {{plant.lightLevel}}</li>
+                <li>Temperature: {{plant.temperature}}</li>
+                <li>Nutrient Need: {{plant.nutrient}}</li>
+            </ul>
+        </mat-expansion-panel>
+    </ng-container>
+
+</mat-accordion>

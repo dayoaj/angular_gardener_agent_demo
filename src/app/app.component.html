@@ -1,0 +1,10 @@
+<header #appHeader>
+  <h1>Gardener Agent</h1>
+  <nav>
+    <a [routerLink]="['/']" routerLinkActive="active-link" [routerLinkActiveOptions]={exact:true}>Agent</a>
+    <a routerLink="/keys" routerLinkActive="active-link">Keys</a>
+    <a routerLink="/about" routerLinkActive="active-link">About</a>
+  </nav>
+</header>
+
+<router-outlet></router-outlet>

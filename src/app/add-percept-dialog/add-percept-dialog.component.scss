@@ -1,0 +1,29 @@
+div {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    mat-form-field {
+        flex: 0 0 49%;
+    }
+    footer {
+        flex: 1 0 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        button {
+            margin-left: 1rem;
+        }
+
+    }
+
+}
+

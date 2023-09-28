@@ -1,0 +1,63 @@
+<div>
+    <header class="form-header">
+        <h2>Percept Input Form</h2>
+    </header>
+    <form [formGroup]="perceptForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline">
+            <mat-label>Plant Species</mat-label>
+            <mat-select formControlName="species">
+                <mat-option *ngFor="let plant of knownPlants" [value]="plant.species">
+                    {{plant.species}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Moisture Level</mat-label>
+            <mat-select formControlName="moisture">
+                <mat-option *ngFor="let waterReq of waterReqTypes" [value]="waterReq">
+                    {{waterReq}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Light Level</mat-label>
+            <mat-select formControlName="lightLevel">
+                <mat-option *ngFor="let level of levelTypes" [value]="level">
+                    {{level}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Height</mat-label>
+            <input matInput formControlName="height" type="number">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Soil pH Level</mat-label>
+            <mat-select formControlName="soilPh">
+                <mat-option *ngFor="let level of levelTypes" [value]="level">
+                    {{level}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Temperature Level</mat-label>
+            <mat-select formControlName="temperature">
+                <mat-option *ngFor="let level of levelTypes" [value]="level">
+                    {{level}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Leave Color</mat-label>
+            <mat-select formControlName="leaveColor">
+                <mat-option *ngFor="let leaveColor of leaveColorTypes" [value]="leaveColor">
+                    {{leaveColorLabelMapping[leaveColor]}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <footer>
+            <button type="submit" mat-flat-button color="primary">Submit</button>
+            <button type="reset" mat-stroked-button color="warn" (click)="onCancelClick()">Cancel</button>
+        </footer>
+    </form>
+</div>

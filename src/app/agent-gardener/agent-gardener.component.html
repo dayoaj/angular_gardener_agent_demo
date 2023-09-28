@@ -1,0 +1,103 @@
+<main>
+    <section id="section-known-plants">
+        <div class="keys">
+            <h3>Known Plants</h3>
+            <app-known-plants [plantList]="knownPlants"></app-known-plants>
+        </div>
+    </section>
+    <section id="section-actions">
+        <div class="image-wrap">
+            <img src="../../assets/gardener_agent_and_flower_pot.svg" alt="gardener agent and flower pot">
+        </div>
+        <div class="button-area">
+            <button mat-flat-button color="accent" (click)="openPerceptEntryDialog()">Input Percepts </button>
+            <button mat-flat-button color="primary">Add new Plant</button>
+        </div>
+    </section>
+    <!--
+        <section #addSpecies class="modal">add species</section> -->
+
+    <section #percepts id="section-percepts">
+        <h3>Current Percept</h3>
+        <div class="percept-wrap">
+            <ng-container *ngIf="currentPercept">
+                <span class="percept">Species</span>
+                <span class="percept-value">{{currentPercept.species}}</span>
+                <span class="percept">Moist. Level</span>
+                <span class="percept-value">{{currentPercept.moisture}}</span>
+                <span class="percept">Light Level</span>
+                <span class="percept-value">{{currentPercept.illumination}}</span>
+                <span class="percept">Temp. Level</span>
+                <span class="percept-value">{{currentPercept.temperature}}</span>
+                <span class="percept">Soil pH Level</span>
+                <span class="percept-value">{{currentPercept.soilPh}}</span>
+                <span class="percept">Height</span>
+                <span class="percept-value">{{currentPercept.height}}</span>
+            </ng-container>
+        </div>
+
+    </section>
+    <section #commands id="section-commands">
+        <h3>Current Commands</h3>
+        <div class="percept-wrap">
+            <ng-container *ngIf="currentCommand">
+                <span class="percept">Spray Water?</span>
+                <span class="percept-value">{{currentCommand.sprayWater? "Yes": "No"}}</span>
+                <span class="percept">Light Control</span>
+                <span class="percept-value">{{currentCommand.illumination}}</span>
+                <span class="percept">Apply Fertilizer?</span>
+                <span class="percept-value">{{currentCommand.applyFertilizer? "Yes" : "No"}}</span>
+                <span class="percept">Temp. Control</span>
+                <span class="percept-value">{{currentCommand.temperature}}</span>
+            </ng-container>
+        </div>
+
+    </section>
+    <section id="section-percept-trace">
+        <h3>Percept Trace</h3>
+        <div class="percept-wrap trace-wrap">
+            <ng-container *ngIf="perceptTrace.length > 0">
+                <div *ngFor="let percept of perceptTrace;let i = index">
+                    <div class="trace">
+                        <span class="percept">Index</span>
+                        <span class="percept-value">{{i}}</span>
+                        <span class="percept">Species</span>
+                        <span class="percept-value">{{percept.species}}</span>
+                        <span class="percept">Moisture Level</span>
+                        <span class="percept-value">{{percept.moisture}}</span>
+                        <span class="percept">Light Level</span>
+                        <span class="percept-value">{{percept.illumination}}</span>
+                        <span class="percept">Temperature Level</span>
+                        <span class="percept-value">{{percept.temperature}}</span>
+                        <span class="percept">Soil pH Level</span>
+                        <span class="percept-value">{{percept.soilPh}}</span>
+                        <span class="percept">Height</span>
+                        <span class="percept-value">{{percept.height}}</span>
+                    </div>
+                </div>
+
+            </ng-container>
+        </div>
+    </section>
+    <section id="section-command-trace">
+        <h3>Command Trace</h3>
+        <div class="percept-wrap trace-wrap">
+            <ng-container *ngIf="commandTrace.length> 0">
+                <div *ngFor="let command  of commandTrace;let i = index ">
+                    <div class="trace">
+                        <span class="percept">Index</span>
+                        <span class="percept-value">{{i}}</span>
+                        <span class="percept">Spray Water?</span>
+                        <span class="percept-value">{{command.sprayWater? "Yes": "No"}}</span>
+                        <span class="percept">Light Control</span>
+                        <span class="percept-value">{{command.illumination}}</span>
+                        <span class="percept">Apply Fertilizer?</span>
+                        <span class="percept-value">{{command.applyFertilizer? "Yes" : "No"}}</span>
+                        <span class="percept">Temperature Control</span>
+                        <span class="percept-value">{{command.temperature}}</span>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </section>
+</main>

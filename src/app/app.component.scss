@@ -1,0 +1,39 @@
+// @use '@angular/material' as mat;
+// @use 'src/theme.scss';
+
+// $primary-palette: map-get($theme, primary);
+// $accent-palette: map-get($theme, accent);
+
+:host {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 4.5rem;
+}
+
+header>h1 {
+ margin-block-start: 0.3rem;  
+ margin-block-start: 0.3rem;  
+}
+
+
+nav>a {
+    text-decoration: none;
+    padding-right: 4rem;
+}
+
+.active-link {
+    font-weight: bold;
+}
+
+// nav>a:first-child {
+//     padding-right: 4rem;
+// }
+

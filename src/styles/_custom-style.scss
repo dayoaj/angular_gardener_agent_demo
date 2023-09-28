@@ -1,0 +1,60 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme) {
+  // Get the color config from the theme.
+  $color-config: mat.get-color-config($theme);
+
+  // Get the primary color palette from the color-config.
+  $primary-palette: map.get($color-config, 'primary');
+  $accent-palette: map.get($color-config, 'accent');
+  $custom-pink-palette: mat.define-palette(mat.$pink-palette);
+
+  .active-link-color {
+    color: mat.get-color-from-palette($primary-palette, 600);
+  }
+
+  nav>a {
+    color: mat.get-color-from-palette($primary-palette, 900);
+  }
+
+  nav>a:hover {
+    color: mat.get-color-from-palette($accent-palette, 500);
+  }
+
+  div.percept-wrap {
+    background-color: mat.get-color-from-palette($primary-palette, 900);
+  }
+
+  span.percept{
+    color: mat.get-color-from-palette($custom-pink-palette, 200);
+  }
+
+  span.percept-value {
+    color: mat.get-color-from-palette($accent-palette, 'text');
+  }
+  
+}
+
+@mixin typography($theme) {
+  // Get the typography config from the theme.
+  $typography-config: mat.get-typography-config($theme);
+
+  .my-c {
+    font-family: mat.font-family($typography-config);
+  }
+}
+
+@mixin theme($theme) {
+  $color-config: mat.get-color-config($theme);
+
+  @if $color-config !=null {
+    @include color($theme);
+  }
+
+  $typography-config: mat.get-typography-config($theme);
+
+  @if $typography-config !=null {
+    @include typography($theme);
+  }
+}
