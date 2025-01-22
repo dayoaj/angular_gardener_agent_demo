@@ -44,6 +44,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/angular_gardener_agent_demo/",
               "budgets": [
                 {
                   "type": "initial",
